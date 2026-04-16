@@ -1,5 +1,7 @@
 # Insider AI → Salesforce: implementation package
 
+**Repository:** [github.com/Siprit/FreeInsider](https://github.com/Siprit/FreeInsider)
+
 This folder implements the architecture for replacing **Insider AI** with **Salesforce Data Cloud**, **Marketing Cloud Personalization (MCP)**, **B2C Commerce Einstein**, and **Marketing Cloud Engagement (MCE)** on a **PWA Kit** storefront.
 
 | Document | Purpose |
