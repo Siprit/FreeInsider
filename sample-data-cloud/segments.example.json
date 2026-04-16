@@ -1,0 +1,73 @@
+{
+  "$comment": "Logical segment specs—rebuild in Data Cloud Segment Builder using your DMO fields. Dates are examples.",
+  "dataSpace": "default",
+  "segments": [
+    {
+      "segmentKey": "HIGH_INTENT_BROWSER_7D",
+      "useCase": "Onsite MCP urgency; MCE browse abandonment",
+      "description": "3+ ViewProduct in 7 days, no order in 7 days",
+      "logic": {
+        "all": [
+          {
+            "event": "ViewProduct",
+            "countAtLeast": 3,
+            "windowDays": 7
+          },
+          {
+            "not": {
+              "event": "Order",
+              "windowDays": 7
+            }
+          }
+        ]
+      },
+      "activationTargets": ["MCP_optional", "MCE_Journey_Browse_Abandon"]
+    },
+    {
+      "segmentKey": "CART_ABANDONER_24H",
+      "useCase": "Cart recovery email/SMS",
+      "description": "Cart updated, no completed order in 24 hours",
+      "logic": {
+        "all": [
+          {
+            "event": "CartUpdateOrAddToCart",
+            "windowHours": 24
+          },
+          {
+            "not": {
+              "event": "OrderCompleted",
+              "windowHours": 24
+            }
+          }
+        ]
+      },
+      "activationTargets": ["MCE_Journey_Cart_Abandon"]
+    },
+    {
+      "segmentKey": "AFFINITY_CATEGORY_SHIRTS",
+      "useCase": "Category-specific promo in MCP; personalized sends",
+      "description": "Majority of recent engagement or orders in category Shirts",
+      "logic": {
+        "note": "Implement via calculated insight or segment on category rollups"
+      },
+      "activationTargets": ["MCE_Promo_Shirts", "MCP_experience"]
+    },
+    {
+      "segmentKey": "WINBACK_LAPSED_90D",
+      "useCase": "Win-back journey",
+      "description": "Last purchase > 90 days ago, marketing consent true",
+      "logic": {
+        "all": [
+          {
+            "lastOrderAgeDaysMin": 90
+          },
+          {
+            "consent": "email_marketing",
+            "equals": true
+          }
+        ]
+      },
+      "activationTargets": ["MCE_Journey_Winback"]
+    }
+  ]
+}

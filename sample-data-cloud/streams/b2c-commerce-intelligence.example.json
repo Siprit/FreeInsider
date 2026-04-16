@@ -1,0 +1,57 @@
+{
+  "$comment": "Illustrative rows after B2C Commerce Intelligence maps into Data Cloud. Real field names = your connector mapping + DMOs.",
+  "connector": "Salesforce_B2C_Commerce_Intelligence",
+  "streams": [
+    {
+      "streamName": "Orders",
+      "useCases": ["Revenue reporting", "Win-back (last purchase date)", "Cart vs order reconciliation"],
+      "exampleRow": {
+        "orderId": "00001234",
+        "orderDate": "2026-04-15T10:30:00.000Z",
+        "customerId": "cust-abc",
+        "currency": "USD",
+        "orderTotal": 149.5,
+        "channel": "web",
+        "siteId": "site-us"
+      }
+    },
+    {
+      "streamName": "OrderLines",
+      "useCases": ["Category affinity from purchase", "Product attach rate"],
+      "exampleRow": {
+        "orderId": "00001234",
+        "lineId": "1",
+        "productId": "SKU-12345",
+        "quantity": 2,
+        "lineTotal": 159.98,
+        "categoryId": "cat-shirts"
+      }
+    },
+    {
+      "streamName": "ProductCatalog",
+      "useCases": ["Segment by category", "Enrich engagement with product attributes"],
+      "exampleRow": {
+        "productId": "SKU-12345",
+        "productName": "Classic Oxford Shirt",
+        "categoryId": "cat-shirts",
+        "isActive": true,
+        "listPrice": 79.99
+      }
+    },
+    {
+      "streamName": "CustomerProfile",
+      "useCases": ["Identity resolution keys", "Consent flags"],
+      "exampleRow": {
+        "customerId": "cust-abc",
+        "emailHash": "<hashed-per-policy>",
+        "loyaltyTier": "gold",
+        "emailMarketingConsent": true,
+        "smsMarketingConsent": false
+      }
+    }
+  ],
+  "ingestionPreference": {
+    "historicalBackfill": "batch_scheduled",
+    "nearRealTimeOrders": "streaming_if_required_for_segment_sla"
+  }
+}

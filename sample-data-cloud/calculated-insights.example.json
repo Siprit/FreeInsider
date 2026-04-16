@@ -1,0 +1,39 @@
+{
+  "$comment": "Intent for Calculated Insights—define in Data Cloud with actual DMOs. Limit count to control credit burn.",
+  "insights": [
+    {
+      "name": "category_affinity_primary",
+      "useCase": "Segments, MCP audience attributes, email personalization",
+      "description": "Primary product category by revenue or views in last 90 days",
+      "inputs": ["OrderLines", "Website_Engagement_ViewProduct"],
+      "outputExample": {
+        "unifiedIndividualId": "ui-001",
+        "primaryCategoryId": "cat-shirts",
+        "score": 0.72
+      },
+      "refreshCadence": "daily_or_weekly_per_credit_review"
+    },
+    {
+      "name": "discount_sensitivity_band",
+      "useCase": "Suppress heavy discounters from full-price campaigns",
+      "description": "Share of orders that used a coupon in last 12 months",
+      "inputs": ["Orders"],
+      "outputExample": {
+        "unifiedIndividualId": "ui-001",
+        "band": "high"
+      },
+      "refreshCadence": "weekly"
+    },
+    {
+      "name": "predicted_30d_clv_bucket",
+      "useCase": "VIP treatment, MCP priority experiences",
+      "description": "Optional—only if model available in your edition",
+      "inputs": ["varies"],
+      "outputExample": {
+        "unifiedIndividualId": "ui-001",
+        "bucket": "medium"
+      },
+      "refreshCadence": "monthly"
+    }
+  ]
+}

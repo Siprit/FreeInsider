@@ -1,0 +1,56 @@
+{
+  "$comment": "Conceptual activation from Data Cloud to Marketing Cloud Engagement. Map fields to your Shared DE / journey entry.",
+  "activationName": "DC_Segments_to_MCE_Shared_DE",
+  "target": {
+    "product": "Marketing_Cloud_Engagement",
+    "destinationType": "shared_data_extension",
+    "exampleDataExtensionName": "FreeInsider_DC_Segment_Members"
+  },
+  "columns": [
+    {
+      "name": "SubscriberKey",
+      "source": "unifiedIndividual.primaryContactKey_or_mapping",
+      "useCase": "Journey entry / send"
+    },
+    {
+      "name": "SegmentKey",
+      "source": "segment.segmentKey",
+      "useCase": "Filter in Journey Builder"
+    },
+    {
+      "name": "SegmentEntryDate",
+      "source": "segment.membershipStartDateTime",
+      "useCase": "Exit criteria, frequency caps"
+    },
+    {
+      "name": "EmailOptIn",
+      "source": "consent.emailMarketing",
+      "useCase": "Suppression before send"
+    },
+    {
+      "name": "Locale",
+      "source": "profile.preferredLocale",
+      "useCase": "Localized content"
+    }
+  ],
+  "linkedJourneys": [
+    {
+      "journeyKey": "Browse_Abandon_7D",
+      "segmentKey": "HIGH_INTENT_BROWSER_7D",
+      "channels": ["email"]
+    },
+    {
+      "journeyKey": "Cart_Abandon_24H",
+      "segmentKey": "CART_ABANDONER_24H",
+      "channels": ["email", "sms"]
+    },
+    {
+      "journeyKey": "Winback_90D",
+      "segmentKey": "WINBACK_LAPSED_90D",
+      "channels": ["email"]
+    }
+  ],
+  "frequencyRules": {
+    "note": "Cap re-entries per subscriber in Journey Builder; align with MCE send limits."
+  }
+}

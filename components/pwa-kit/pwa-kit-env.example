@@ -1,0 +1,7 @@
+# Copy to .env in your PWA Kit project (do not commit real values).
+# Managed Runtime: set these in Project Settings → Environment Variables.
+
+DATA_CLOUD_TENANT_ID=
+DATA_CLOUD_APP_SOURCE_ID=
+# Optional: require both IDs at build/runtime (mergeDataCloudConfig logs if incomplete)
+# DATA_CLOUD_ENABLED=true

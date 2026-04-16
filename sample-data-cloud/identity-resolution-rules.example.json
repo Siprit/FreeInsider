@@ -1,0 +1,35 @@
+{
+  "$comment": "Conceptual identity rules—implement in Data Cloud Identity Resolution UI. Start minimal; expand after credit review.",
+  "rulesetName": "Commerce_Web_Minimal_V1",
+  "priority": [
+    {
+      "ruleId": "match_by_customer_id",
+      "description": "Same person when Commerce customer ID matches across sources",
+      "matchKeys": [
+        {
+          "sourceObject": "B2C_Commerce_CustomerProfile",
+          "field": "customerId"
+        },
+        {
+          "sourceObject": "Website_Engagement",
+          "field": "registeredCustomerId"
+        }
+      ],
+      "matchType": "exact"
+    },
+    {
+      "ruleId": "match_by_loyalty_id",
+      "description": "Optional second key if loyalty ID is authoritative",
+      "matchKeys": [
+        {
+          "sourceObject": "B2C_Commerce_CustomerProfile",
+          "field": "loyaltyMemberId"
+        }
+      ],
+      "matchType": "exact"
+    }
+  ],
+  "reconciliation": {
+    "note": "Prefer stable Commerce IDs over broad fuzzy email matching on day one."
+  }
+}

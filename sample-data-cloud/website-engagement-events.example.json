@@ -1,0 +1,63 @@
+{
+  "$comment": "Conceptual shapes for events sent from PWA Kit + Data Cloud Web SDK. Actual schema = your org's Website Engagement / engagement DMO in Data Explorer.",
+  "appSource": "PWA_KIT_STOREFRONT",
+  "tenantNote": "DATA_CLOUD_TENANT_ID + DATA_CLOUD_APP_SOURCE_ID in Managed Runtime",
+  "eventTypes": {
+    "ViewPage": {
+      "useCase": "Traffic, funnel, content performance",
+      "examplePayload": {
+        "eventType": "ViewPage",
+        "eventDateTime": "2026-04-16T12:00:00.000Z",
+        "pageUrl": "https://shop.example.com/mens/shirts",
+        "pageTitle": "Men's Shirts",
+        "referrer": "https://google.com",
+        "locale": "en-US"
+      }
+    },
+    "ViewProduct": {
+      "useCase": "High-intent browser, PDP retargeting, category affinity inputs",
+      "examplePayload": {
+        "eventType": "ViewProduct",
+        "eventDateTime": "2026-04-16T12:01:00.000Z",
+        "productId": "SKU-12345",
+        "productName": "Classic Oxford Shirt",
+        "categoryId": "cat-shirts",
+        "currency": "USD",
+        "price": 79.99
+      }
+    },
+    "ViewCategory": {
+      "useCase": "PLP engagement, category affinity segments",
+      "examplePayload": {
+        "eventType": "ViewCategory",
+        "eventDateTime": "2026-04-16T12:02:00.000Z",
+        "categoryId": "cat-shirts",
+        "categoryName": "Shirts",
+        "resultCount": 42
+      }
+    },
+    "ViewSearchResults": {
+      "useCase": "Search intent, zero-result analysis, merchandising",
+      "examplePayload": {
+        "eventType": "ViewSearchResults",
+        "eventDateTime": "2026-04-16T12:03:00.000Z",
+        "searchQuery": "linen shirt",
+        "resultCount": 18
+      }
+    },
+    "ViewRecommendations": {
+      "useCase": "Einstein/MCP slot exposure, reco CTR",
+      "examplePayload": {
+        "eventType": "ViewRecommendations",
+        "eventDateTime": "2026-04-16T12:04:00.000Z",
+        "placementId": "pdp-similar-items",
+        "recommendationModel": "einstein_similar_items",
+        "productIdsShown": ["SKU-1", "SKU-2", "SKU-3"]
+      }
+    }
+  },
+  "identityHints": {
+    "anonymousVisitorId": "cookie-or-device-id-from-sdk",
+    "registeredCustomerId": "populated-after-login-or-known-profile"
+  }
+}

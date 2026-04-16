@@ -1,0 +1,13 @@
+{
+  "name": "freeinsider",
+  "private": true,
+  "type": "module",
+  "description": "Reference components and runbooks for Insider → Salesforce (Data Cloud, MCP, Einstein, MCE)",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/freeinsider.test.mjs",
+    "validate:env": "node scripts/validate-env.cjs"
+  }
+}
