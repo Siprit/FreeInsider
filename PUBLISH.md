@@ -1,5 +1,7 @@
 # Publish to GitHub (Free Insider)
 
+**Published:** [github.com/Siprit/FreeInsider](https://github.com/Siprit/FreeInsider)
+
 This folder is a **standalone Git repository** (its own `.git`). It is separate from the parent `NotesGoogleDocsFiles` repo.
 
 ## 1. Create an empty repository on GitHub
@@ -15,14 +17,14 @@ From this directory:
 
 ```bash
 cd /path/to/NotesGoogleDocsFiles/FreeInsider
-git remote add origin https://github.com/YOUR_USERNAME/Free-Insider.git
+git remote add origin https://github.com/Siprit/FreeInsider.git
 git push -u origin main
 ```
 
 Use SSH if you prefer:
 
 ```bash
-git remote add origin git@github.com:YOUR_USERNAME/Free-Insider.git
+git remote add origin git@github.com:Siprit/FreeInsider.git
 git push -u origin main
 ```
 
