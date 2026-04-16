@@ -35,3 +35,7 @@ cd FreeInsider && npm test
 ```
 
 See [test/freeinsider.test.mjs](test/freeinsider.test.mjs) for `mergeDataCloudConfig`, `validateEnv`, and `pushEcommerceEvent` coverage.
+
+## GitHub
+
+This directory is a **standalone Git repository**. To publish it as a new GitHub project, follow [PUBLISH.md](PUBLISH.md).
